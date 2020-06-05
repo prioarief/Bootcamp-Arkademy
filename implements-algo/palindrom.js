@@ -1,18 +1,17 @@
 const palindrome = (string) => {
-	if(string.length < 1){
-		console.log('input tidak boleh kosong')
-		return false
+	const regex = new RegExp("^[a-zA-Z][a-zA-Z ]+$");
+	if (string.trim().length > 1 || regex.test(string)) {
+		const stringToLowwer = string.toLowerCase();
+		const result = stringToLowwer.split("").reverse().join("");
+		if (result == stringToLowwer) {
+			console.log("palindrome");
+		} else {
+			console.log("bukan palindrome");
+		}
+	} else {
+		console.log("input tidak sesuai");
+		return false;
 	}
+};
 
-	const strNormal = string.split("")
-	const strBalik = strNormal.reverse()
-	const result = strBalik.join("")
-
-	if(result == string){
-		console.log('palindrome')
-	}else{
-		console.log('bukan palindrome')
-	}
-}
-
-palindrome('kasur')
+palindrome("MalAm Malam");

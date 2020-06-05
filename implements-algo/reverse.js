@@ -1,14 +1,12 @@
 const reverse = (str) => {
-    if(str.length < 1){
-		console.log('input tidak boleh kosong')
-		return false
+	const regex = new RegExp("^[a-zA-Z][a-zA-Z ]+$");
+	if (str.trim().length > 1 || regex.test(str)) {
+		const result = str.split(" ").reverse().join(" ");
+		console.log(result);
+	} else {
+		console.log("input tidak sesuai");
+		return false;
 	}
+};
 
-	const strPisah = str.split(" ")
-	const strBalik = strPisah.reverse()
-	const result = strBalik.join(" ")
-
-	console.log(result)
-}
-
-reverse("Saya Belajar Javascript")
+reverse("Saya Belajar Javascript");
